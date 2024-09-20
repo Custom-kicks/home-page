@@ -52,6 +52,7 @@ const Brands = () => {
                 src={brand.src}
                 alt={brand.name}
                 className="h-24 w-40 object-contain grayscale hover:grayscale-0 transition duration-200"
+                layout='fill'
               />
             </div>
           ))}
