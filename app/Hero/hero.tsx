@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const images = [
   {
@@ -13,7 +13,7 @@ const images = [
   },
   {
     src: "/imgs/carousel3.jpg",
-    tagline: "Trending blogs stories on sneakers",
+    tagline: "Trending blog stories on sneakers",
   },
 ];
 
@@ -34,9 +34,8 @@ const Hero = () => {
         <Image
           src={images[currentIndex].src}
           alt={images[currentIndex].tagline}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
           priority
         />
       </div>
