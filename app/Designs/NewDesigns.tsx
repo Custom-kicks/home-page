@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Pencil1Icon, ChevronUpIcon } from "@radix-ui/react-icons"; // Importing Radix Icons
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const products = [
   { name: "Nike AF GTA", price: "₹5,999", img: "/imgs/Nke_gta.jpeg" },
