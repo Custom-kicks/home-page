@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Brands = () => {
   const brandLogos = [
@@ -47,7 +48,7 @@ const Brands = () => {
         <div className="flex space-x-2 md:space-x-3 lg:space-x-5 animate-marquee whitespace-nowrap">
           {brandLogos.concat(brandLogos).map((brand, index) => (
             <div key={index} className="flex-shrink-0 w-40 py-5">
-              <img
+              <Image
                 src={brand.src}
                 alt={brand.name}
                 className="h-24 w-40 object-contain grayscale hover:grayscale-0 transition duration-200"

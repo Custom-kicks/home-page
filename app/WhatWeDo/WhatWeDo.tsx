@@ -9,7 +9,7 @@ const WhatWeDo = () => {
       {/* Sneaker Customization Section */}
       <div className="flex flex-col lg:flex-row items-center mb-10 lg:mx-8 gap-3">
         <div className="w-full lg:w-1/2">
-          <img
+          <Image
             alt="Sneaker Customization"
             src="https://images.pexels.com/photos/2300334/pexels-photo-2300334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             className="h-auto w-full object-cover sm:h-80 lg:h-96 rounded-md"
@@ -62,7 +62,7 @@ const WhatWeDo = () => {
       {/* Blogs Section */}
       <div className="flex flex-col lg:flex-row items-center mb-10 lg:mx-8 gap-5">
         <div className="w-full lg:w-1/2">
-          <img
+          <Image
             alt="Blogs"
             src="https://plus.unsplash.com/premium_photo-1666299720600-a432232bdf2f?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             className="h-auto w-full object-cover sm:h-80 lg:h-96 rounded-md"
