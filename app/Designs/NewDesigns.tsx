@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Pencil1Icon, ChevronUpIcon } from "@radix-ui/react-icons"; // Importing Radix Icons
+import Image from "next/image";
 
 const products = [
   { name: "Nike AF GTA", price: "₹5,999", img: "/imgs/Nke_gta.jpeg" },
@@ -33,7 +34,7 @@ const NewDesigns = () => {
         {products.slice(0, showMore ? products.length : 4).map((product, index) => (
           <div key={index} className="bg-white p-3 shadow-md rounded transition duration-300 hover:shadow-lg">
             <div className="relative overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={product.img}
                 alt={product.name}
                 className="w-full h-80 rounded-lg object-cover mb-4 transform transition-transform duration-300 ease-in-out hover:scale-105"

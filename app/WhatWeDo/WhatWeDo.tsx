@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const WhatWeDo = () => {
   return (
@@ -35,7 +36,7 @@ const WhatWeDo = () => {
       {/* In-house Designers Section */}
       <div className="flex flex-col lg:flex-row-reverse items-center mb-10 lg:mx-8 gap-5">
         <div className="w-full lg:w-1/2">
-          <img
+          <Image
             alt="In-house Designers"
             src="https://images.pexels.com/photos/8764416/pexels-photo-8764416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             className="h-auto w-full object-cover sm:h-80 lg:h-96 rounded-md"
