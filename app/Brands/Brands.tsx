@@ -5,7 +5,7 @@ const Brands = () => {
   const brandLogos = [
     {
       name: 'Fila',
-      src: 'https://logos-world.net/wp-content/uploads/2020/09/Fila-Logo.png',
+      src: '/logos/fila-9-logo.svg',
     },
     {
       name: 'Adidas',
