@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Pencil1Icon, ChevronUpIcon } from "@radix-ui/react-icons"; // Importing Radix Icons
-import Image from "next/legacy/image";
+import Image from "next/legacy/image"; // Using legacy image component
 
 const products = [
   { name: "Nike AF GTA", price: "₹5,999", img: "/imgs/Nke_gta.jpeg" },
@@ -37,9 +37,11 @@ const NewDesigns = () => {
               <Image
                 src={product.img}
                 alt={product.name}
-                className="w-full h-80 rounded-lg object-cover mb-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
+                width={400}  // Required width
+                height={400} // Required height
+                className="w-full h-auto rounded-lg object-cover mb-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
               />
-              {/* Apply "New" tag only to the first 3 products */}
+              {/* Apply "New" tag only to the first 4 products */}
               {index < 4 && (
                 <span className="absolute bottom-6 left-2 bg-rose-600 text-white text-sm font-semibold px-2 py-1 rounded-xl">
                   New
