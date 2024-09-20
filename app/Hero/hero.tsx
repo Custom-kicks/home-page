@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const images = [
   {
@@ -34,8 +34,9 @@ const Hero = () => {
         <Image
           src={images[currentIndex].src}
           alt={images[currentIndex].tagline}
-          fill
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          layout="fill" // Make sure layout is fill for full coverage
+          objectFit="cover" // Ensures the image covers the entire section
+          objectPosition="center"
           priority
         />
       </div>
