@@ -5,7 +5,7 @@ const Brands = () => {
   const brandLogos = [
     {
       name: 'Fila',
-      src: 'https://cdn.shopify.com/s/files/1/0558/6413/1764/files/Rewrite_Fila_Logo_Design_History_Evolution_0_1024x1024.jpg?v=1694712230',
+      src: 'https://logos-world.net/wp-content/uploads/2020/09/Fila-Logo.png',
     },
     {
       name: 'Adidas',
@@ -52,7 +52,7 @@ const Brands = () => {
                 src={brand.src}
                 alt={brand.name}
                 className="h-24 w-40 object-contain grayscale hover:grayscale-0 transition duration-200"
-                layout='fill'
+                // layout='fill'
               />
             </div>
           ))}
