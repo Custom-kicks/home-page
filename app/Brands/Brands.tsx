@@ -5,39 +5,35 @@ const Brands = () => {
   const brandLogos = [
     {
       name: 'Fila',
-      src: '/logos/fila-9-logo.svg',
+      src: '/logos/fila.svg',
     },
     {
       name: 'Adidas',
-      src: 'https://cdn.logojoy.com/wp-content/uploads/20231013154327/Adidas-logo-1991-1-600x319.png',
+      src: '/logos/adidas.svg',
     },
     {
       name: 'Nike',
-      src: 'https://thumbs.dreamstime.com/b/web-183282273.jpg',
+      src: '/logos/nike.svg',
     },
     {
       name: 'Vans',
-      src: 'https://i.pinimg.com/originals/dc/03/89/dc03893a0baf50b2efbdede6350e4d67.jpg',
+      src: '/logos/vans.svg',
     },
     {
       name: 'New Balance',
-      src: 'https://www.cdnlogo.com/logos/n/91/new-balance.svg',
+      src: '/logos/newbalance.svg',
     },
     {
       name: 'Converse',
-      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86iL46FLSAoQLdjoxXzT532id-JTXTo5RIw&s',
+      src: '/logos/converse.svg',
     },
     {
       name: 'Puma',
-      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8O-Dp6PpVuzWlcf0WG4W_o57GtZEAaimDyg&s',
+      src: '/logos/puma.svg',
     },
     {
       name: 'Reebok',
-      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6NpNt23kMoeJdmjZI1BwOfzERxCtpOzocgogAg51rnH3mvo7MX7Vl8Gfe8-D4_G33UAI&usqp=CAU',
-    },
-    {
-      name: 'Doc Martens',
-      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDzFSnElqknXn-KvYGIl5SbMz4HlW4R2SXKA&s',
+      src: '/logos/reebok.svg',
     },
   ];
 
@@ -51,8 +47,9 @@ const Brands = () => {
               <Image
                 src={brand.src}
                 alt={brand.name}
+                width={160}
+                height={96}
                 className="h-24 w-40 object-contain grayscale hover:grayscale-0 transition duration-200"
-                layout='fill'
               />
             </div>
           ))}
