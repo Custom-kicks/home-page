@@ -47,9 +47,9 @@ const Brands = () => {
               <Image
                 src={brand.src}
                 alt={brand.name}
-                width={160}
-                height={96}
-                className="h-24 w-40 object-contain grayscale hover:grayscale-0 transition duration-200"
+                width={140}
+                height={80}
+                className="object-contain grayscale hover:grayscale-0 transition duration-200"
               />
             </div>
           ))}
