@@ -7,6 +7,8 @@ const Loading = () => {
         src="/imgs/logo.jpeg"
         alt="Loading..."
         className="w-48 h-48 object-contain"
+        width={160}
+        height={96}
       />
     </div>
   );
