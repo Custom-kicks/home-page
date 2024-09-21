@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Simulate loading time (e.g., 2 seconds)
+    }, 2000); 
 
     return () => clearTimeout(timer);
   }, []);
