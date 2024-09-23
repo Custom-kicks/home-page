@@ -26,7 +26,7 @@ const NewDesigns = () => {
   };
 
   return (
-    <section id="new-designs" className="py-24 bg-gray-50 px-4">
+    <section id="new-designs" className="py-24 bg-gray-50 px-6">
       <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400">New Designs</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -41,7 +41,7 @@ const NewDesigns = () => {
                 height={150} 
                 layout="responsive" 
                 objectFit="cover" 
-                className="w-full h-auto rounded-lg mb-4"
+                className="w-full h-auto rounded-lg mb-4 transition-all duration-500 hover:scale-110"
               />
               {index < 4 && (
                 <span className="absolute bottom-6 left-2 bg-rose-600 text-white text-sm font-semibold px-2 py-1 rounded-xl">
@@ -49,7 +49,7 @@ const NewDesigns = () => {
                 </span>
               )}
             </div>
-            <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+            <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
             <div className="flex items-center justify-between">
               <p className="text-gray-500 text-md">{product.price}</p>
               <button className="relative">

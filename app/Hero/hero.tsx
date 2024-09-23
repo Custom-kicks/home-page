@@ -8,7 +8,7 @@ const images = [
     tagline: "We customize awesome sneakers",
   },
   {
-    src: "/imgs/carousel.jpg",
+    src: "/imgs/carousel2.jpg",
     tagline: "We've experienced in-house designers",
   },
   {
