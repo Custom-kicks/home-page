@@ -28,11 +28,32 @@ const LeadGenerationForm: React.FC = () => {
     document.body.style.overflow = 'auto'; 
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log({ name, email });
-    // Add your form submission logic here
-    closeModal();
+  
+    try {
+     
+      const response = await fetch("https://getform.io/f/apjmoeja", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          name, 
+          email, 
+        }).toString(),
+      });
+  
+      if (response.ok) {
+        console.log("Form successfully submitted");
+        closeModal();
+      } else {
+        console.error("Form submission failed", response);
+      }
+    } catch (error) {
+      console.error("An error occurred during submission:", error);
+    }
   };
 
   return (
@@ -72,9 +93,15 @@ const LeadGenerationForm: React.FC = () => {
                 </span>
               </h2>
 
-              <form onSubmit={handleSubmit} className="mt-8">
+              <form
+                action="https://getform.io/f/apjmoeja"
+                method="POST"
+                onSubmit={handleSubmit}
+                className="mt-8"
+              >
                 <input
                   type="text"
+                  name="name"
                   placeholder="Enter your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -83,12 +110,16 @@ const LeadGenerationForm: React.FC = () => {
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full p-2 mb-4 border border-gray-400"
                 />
+                {/* Honeypot field for spam prevention */}
+                <input type="hidden" name="_gotcha" style={{ display: "none" }} />
+
                 <button
                   type="submit"
                   className="mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white"
