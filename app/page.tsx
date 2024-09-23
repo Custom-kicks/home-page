@@ -8,6 +8,7 @@ import Brands from './Brands/Brands';
 import FAQ from './FAQ/Faq';
 import Contact from './Contact/Contact';
 import Loading from './Loading'; 
+import LeadGenerationForm from '@/components/LeadGenerationForm';
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ const HomePage = () => {
 
   return (
     <main className='font-poppins'>
+      <LeadGenerationForm />
       <Hero />
       <WhatWeDo />
       <NewDesigns />
