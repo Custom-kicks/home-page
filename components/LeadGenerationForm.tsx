@@ -1,4 +1,4 @@
-"use client"; // Necessary for Next.js projects using the app directory
+"use client"; 
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'; 
@@ -16,12 +16,12 @@ const LeadGenerationForm: React.FC = () => {
         setShowForm(true);
         document.body.style.overflow = 'hidden'; 
       }
-    }, 3000); 
+    }, 7000); 
 
     return () => clearTimeout(timer);
   }, [formClosed]);
 
-  // Close the modal and prevent it from showing again
+  
   const closeModal = () => {
     setShowForm(false);
     setFormClosed(true);
