@@ -43,7 +43,7 @@ const Brands = () => {
       <div className="overflow-hidden">
         <div className="flex space-x-2 md:space-x-3 lg:space-x-5 animate-marquee whitespace-nowrap">
           {brandLogos.concat(brandLogos).map((brand, index) => (
-            <div key={index} className="flex-shrink-0 w-40 py-5">
+            <div key={index} className="flex-shrink-0 w-40 py-3">
               <Image
                 src={brand.src}
                 alt={brand.name}

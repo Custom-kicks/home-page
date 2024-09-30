@@ -12,7 +12,7 @@ const FAQWithLeadForm: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="mt-20 bg-white px-5">
+    <section id="faq" className="mt-20 px-5">
       {/* FAQ Section */}
       <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
       <div className="max-w-4xl mx-auto space-y-4">
