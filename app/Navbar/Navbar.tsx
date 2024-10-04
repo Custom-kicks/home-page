@@ -5,18 +5,21 @@ import {
   MagnifyingGlassIcon,
   PersonIcon,
   DragHandleHorizontalIcon,
+  ArrowRightIcon,
+  InstagramLogoIcon,
+  TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isLoginMenuOpen, setIsLoginMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleLoginDialog = () => {
-    setIsLoginOpen(!isLoginOpen);
+  const toggleLoginMenu = () => {
+    setIsLoginMenuOpen(!isLoginMenuOpen);
   };
 
   const closeMenu = () => {
@@ -37,134 +40,137 @@ const Navbar = () => {
         </div>
 
         {/* Right Icons */}
-        <div className="flex space-x-1 lg:space-x-2">
+        <div className="flex space-x-1 lg:space-x-2 relative">
           <MagnifyingGlassIcon className="w-5 h-5 text-gray-300" />
           <HeartIcon className="w-5 h-5 text-gray-300" />
-          <button onClick={toggleLoginDialog}>
+          <button onClick={toggleLoginMenu} className="relative">
             <PersonIcon className="w-5 h-5 text-gray-300" />
           </button>
+
+          {/* Dropdown Menu for Sign In and Sign Up */}
+          {isLoginMenuOpen && (
+            <div className="absolute right-0 mt-8 w-32 bg-white border border-gray-200 shadow-lg rounded-md z-50">
+              <ul className="py-1">
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    SignIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className=" flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    SignUp <ArrowRightIcon className="ml-8 mt-1" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="fixed top-12 lg:top-16 left-0 w-2/3 lg:w-1/4 h-full bg-black shadow-md z-50">
-            <ul className="flex flex-col items-start p-4 space-y-4 text-gray-200">
+            <ul className="flex flex-col items-start p-4 space-y-4 text-gray-200 animate-fadeIn">
               <li>
-                <a href="#new-designs" className="hover:text-indigo-500" onClick={closeMenu}>
+                <a
+                  href="#new-designs"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
                   New Designs
                 </a>
               </li>
               <li>
-                <a href="#blogs" className="hover:text-indigo-500" onClick={closeMenu}>
+                <a
+                  href="#blogs"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
                   Blogs
                 </a>
               </li>
               <li>
-                <a href="#brands" className="hover:text-indigo-500" onClick={closeMenu}>
+                <a
+                  href="#brands"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
                   Brands
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-indigo-500" onClick={closeMenu}>
+                <a
+                  href="#in-house-designers"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
+                  In-house Designers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#our-community"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
+                  Our Community
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#your-orders"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
+                  Your Orders
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="hover:text-indigo-500"
+                  onClick={closeMenu}
+                >
                   FAQ
                 </a>
               </li>
             </ul>
+
+            {/* Connect with Us Section */}
+            <div className="mt-auto p-4">
+              <p className="text-gray-400">Connect with us:</p>
+              <div className="flex space-x-4 mt-2">
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-gray-200 hover:text-indigo-500"
+                >
+                  <InstagramLogoIcon className="w-6 h-6" />
+                </a>
+
+                {/* Twitter */}
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                  className="text-gray-200 hover:text-indigo-500"
+                >
+                  <TwitterLogoIcon className="w-6 h-6" />
+                </a>
+              </div>
+            </div>
           </div>
         )}
       </nav>
-
-      {/* Login Dialog */}
-      {isLoginOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg space-y-4 relative w-full max-w-lg">
-            <button onClick={toggleLoginDialog} className="absolute top-2 right-2 text-gray-500">
-              &times;
-            </button>
-            <h2 className="text-xl font-bold text-center">Sign in</h2>
-
-            <form className="mt-6 space-y-4">
-              <div>
-                <label htmlFor="email" className="sr-only">Email</label>
-                <div className="relative">
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                    placeholder="Enter email"
-                    required
-                  />
-                  <span className="absolute inset-y-0 right-0 grid place-content-center px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 text-gray-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="password" className="sr-only">Password</label>
-                <div className="relative">
-                  <input
-                    type="password"
-                    id="password"
-                    className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                    placeholder="Enter password"
-                    required
-                  />
-                  <span className="absolute inset-y-0 right-0 grid place-content-center px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 text-gray-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="block w-full rounded-lg bg-gray-900 px-5 py-3 text-sm font-medium text-white"
-              >
-                Sign in
-              </button>
-
-              <p className="text-center text-sm text-gray-500">
-                No account?{" "}
-                <a className="underline" href="#">
-                  Sign up
-                </a>
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
     </>
   );
 };
