@@ -1,25 +1,17 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import {
-  HeartIcon,
-  MagnifyingGlassIcon,
-  PersonIcon,
   DragHandleHorizontalIcon,
-  ArrowRightIcon,
   InstagramLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoginMenuOpen, setIsLoginMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleLoginMenu = () => {
-    setIsLoginMenuOpen(!isLoginMenuOpen);
   };
 
   const closeMenu = () => {
@@ -28,143 +20,72 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between p-5 lg:p-6 bg-black fixed top-0 left-0 right-0 z-50">
-        {/* Hamburger Menu Icon */}
-        <button onClick={toggleMenu}>
-          <DragHandleHorizontalIcon className="w-6 h-6 text-gray-200" />
-        </button>
-
-        {/* Brand Name */}
-        <div className="text-xl font-bold text-center w-full text-white">
-          Custom Kicks
+      <nav className="flex items-center justify-between p-5 lg:p-3 bg-white fixed top-0 left-0 right-0 z-50">
+        {/* For Mobile: Hamburger Menu Icon on the left */}
+        <div className="lg:hidden flex items-center mr-10">
+          <button onClick={toggleMenu}>
+            <DragHandleHorizontalIcon className="w-8 h-8 text-gray-900" />
+          </button>
         </div>
 
-        {/* Right Icons */}
-        <div className="flex space-x-1 lg:space-x-2 relative">
-          <MagnifyingGlassIcon className="w-5 h-5 text-gray-300" />
-          <HeartIcon className="w-5 h-5 text-gray-300" />
-          <button onClick={toggleLoginMenu} className="relative">
-            <PersonIcon className="w-5 h-5 text-gray-300" />
-          </button>
+        {/* Logo for all devices, centered in mobile view */}
+        <div className="flex text-center ml-5">
+          <Image src="/imgs/logo.png" alt="Custom Kicks Logo" width={180} height={180} />
+        </div>
 
-          {/* Dropdown Menu for Sign In and Sign Up */}
-          {isLoginMenuOpen && (
-            <div className="absolute right-0 mt-8 w-32 bg-white border border-gray-200 shadow-lg rounded-md z-50">
-              <ul className="py-1">
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    SignIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className=" flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    SignUp <ArrowRightIcon className="ml-8 mt-1" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          )}
+        {/* Nav Links for large devices */}
+        <div className="hidden lg:flex space-x-10 items-center mr-5">
+          <a href="/" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Home</a>
+          <a href="/cart" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
+          <a href="/search" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Search</a>
+          <a href="/blog" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Blog</a>
+          <a href="/contact" className="font-normal text-white bg-black border border-gray-800 p-3 rounded-lg hover:bg-gray-900">
+            Contact us
+          </a>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="fixed top-12 lg:top-16 left-0 w-2/3 lg:w-1/4 h-full bg-black shadow-md z-50">
-            <ul className="flex flex-col items-start p-4 space-y-4 text-gray-200 animate-fadeIn">
+          <div
+            className="fixed top-12 left-0 w-full h-[calc(100vh-3rem)] bg-white shadow-md z-50 transition-transform duration-500 ease-out transform translate-y-0 mt-2"
+          >
+            <ul className="flex flex-col items-start p-5 space-y-4 text-gray-800 animate-slideInDown">
               <li>
-                <a
-                  href="#new-designs"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  New Designs
+                <a href="/" className="hover:text-indigo-500" onClick={closeMenu}>
+                  Home
                 </a>
               </li>
               <li>
-                <a
-                  href="#blogs"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  Blogs
+                <a href="/cart" className="hover:text-indigo-500" onClick={closeMenu}>
+                  Cart
                 </a>
               </li>
               <li>
-                <a
-                  href="#brands"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  Brands
+                <a href="/search" className="hover:text-indigo-500" onClick={closeMenu}>
+                  Search
                 </a>
               </li>
               <li>
-                <a
-                  href="#in-house-designers"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  In-house Designers
+                <a href="/blog" className="hover:text-indigo-500" onClick={closeMenu}>
+                  Blog
                 </a>
               </li>
               <li>
-                <a
-                  href="#our-community"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  Our Community
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#your-orders"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  Your Orders
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className="hover:text-indigo-500"
-                  onClick={closeMenu}
-                >
-                  FAQ
+                <a href="/contact" className="hover:text-indigo-500" onClick={closeMenu}>
+                  Contact
                 </a>
               </li>
             </ul>
 
             {/* Connect with Us Section */}
             <div className="mt-auto p-4">
-              <p className="text-gray-400">Connect with us:</p>
+              <p className="text-gray-600">Connect with us:</p>
               <div className="flex space-x-4 mt-2">
-                {/* Instagram */}
-                <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="text-gray-200 hover:text-indigo-500"
-                >
-                  <InstagramLogoIcon className="w-6 h-6" />
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <InstagramLogoIcon className="w-6 h-6 text-gray-400 hover:text-indigo-500" />
                 </a>
-
-                {/* Twitter */}
-                <a
-                  href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                  className="text-gray-200 hover:text-indigo-500"
-                >
-                  <TwitterLogoIcon className="w-6 h-6" />
+                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                  <TwitterLogoIcon className="w-6 h-6 text-gray-400 hover:text-indigo-500" />
                 </a>
               </div>
             </div>
