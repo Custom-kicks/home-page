@@ -43,7 +43,7 @@ const HeroSection = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`flex flex-col-reverse lg:flex-row w-full min-w-full transition-transform transform ${
+            className={`flex flex-col-reverse lg:flex-row w-full min-w-full transition-transform duration-500 ease-in-out ${
               currentSlide === index ? "translate-x-0" : "-translate-x-full"
             }`}
             style={{
@@ -55,10 +55,10 @@ const HeroSection = () => {
               <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold italic mb-1 lg:mb-5">
                 {slide.title}
               </h2>
-              <p className="text-base md:text-lg lg:text-2xl italic mt-1 lg:mt-4">
+              <p className="text-base md:text-lg lg:text-xl italic mt-1 lg:mt-3">
                 {slide.subtitle}
               </p>
-              <p className="text-sm md:text-base lg:text-lg text-gray-500 italic mt-1 lg:mt-3">
+              <p className="text-sm md:text-base lg:text-lg text-gray-500 italic mt-1 lg:mt-2">
                 {slide.description}
               </p>
             </div>
