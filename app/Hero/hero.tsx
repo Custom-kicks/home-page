@@ -43,14 +43,14 @@ const HeroSection = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`flex flex-col-reverse lg:flex-row w-full min-w-full transition-transform duration-500 ease-in-out ${
+            className={`flex flex-col-reverse lg:flex-row w-full min-w-full transition-transform duration-700 ease-in-out ${
               currentSlide === index ? "translate-x-0" : "-translate-x-full"
             }`}
             style={{
               transform: `translateX(-${currentSlide * 100}%)`,
             }}
           >
-            {/* Left Content (Text on larger screens, bottom on mobile) */}
+            {/* Left Content */}
             <div className="w-full lg:w-1/2 p-2 lg:p-5 flex flex-col justify-center gap-2 lg:gap-4 lg:order-1">
               <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold italic mb-1 lg:mb-5">
                 {slide.title}
@@ -63,7 +63,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Right Content (Image on larger screens, top on mobile) */}
+            {/* Right Content */}
             <div className="w-full lg:w-1/2 p-3 flex items-center justify-center lg:order-2">
               <Image
                 src={slide.image}
@@ -80,7 +80,7 @@ const HeroSection = () => {
       <div className="absolute bottom-12 flex justify-center w-full z-20 mt-5">
         <a
           href="#"
-          className="px-8 py-3 bg-black text-white text-lg rounded-full hover:bg-gray-800 transition"
+          className="px-8 py-3 bg-black text-white text-lg rounded-none hover:bg-gray-800 transition"
         >
           Add to Cart
         </a>

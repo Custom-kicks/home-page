@@ -39,7 +39,7 @@ const Navbar = () => {
           <a href="/cart" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
           <a href="/search" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Search</a>
           <a href="/blog" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Blog</a>
-          <a href="/contact" className="font-normal text-white bg-black border border-gray-800 p-3 rounded-lg hover:bg-gray-900">
+          <a href="/contact" className=" text-lg font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-none hover:bg-gray-900">
             Contact us
           </a>
         </div>

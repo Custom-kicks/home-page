@@ -28,7 +28,7 @@ const whatWeDoSections = [
       Immerse yourself in the hottest trends, uncover the latest in cutting-edge sneaker design, and stay ahead of the curve with breaking news from the sneaker universe.`,
     img: '/imgs/online-blogs.jpg',
     alt: 'Blogs',
-    linkText: 'See All',
+    linkText: 'Join now',
     reverse: false,
   },
 ];
@@ -60,7 +60,7 @@ const WhatWeDo = () => {
                 {section.description}
               </p>
               <div className="flex justify-end mt-3 lg:mt-5">
-                <a href="#" className="bg-gray-900 text-white px-6 py-3 rounded-md flickering hover:bg-gray-700">
+                <a href="#" className="bg-gray-900 text-white px-6 py-3 rounded-none flickering hover:bg-gray-700">
                   {section.linkText}
                 </a>
               </div>

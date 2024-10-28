@@ -1,4 +1,4 @@
-"use client"; // Necessary for Next.js projects using the app directory
+"use client"; 
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'; 
@@ -33,7 +33,6 @@ const LeadGenerationForm: React.FC = () => {
     console.log({ name, email });
   
     try {
-     
       const response = await fetch("https://getform.io/f/apjmoeja", {
         method: "POST",
         headers: {
@@ -59,8 +58,8 @@ const LeadGenerationForm: React.FC = () => {
   return (
     <>
       {showForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <section className="overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3 bg-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 sm:p-6">
+          <section className="relative overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3 bg-white max-w-md w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
             {/* Image Section */}
             <div className="h-32 w-full md:h-full relative">
               <Image
@@ -72,23 +71,21 @@ const LeadGenerationForm: React.FC = () => {
             </div>
 
             {/* Form Section */}
-            <div className="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
+            <div className="relative p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
               <button
                 onClick={closeModal}
-                className="absolute top-20 right-20 text-2xl lg:text-4xl font-light text-white"
+                className="absolute top-4 right-4 text-2xl font-semibold text-gray-500 hover:text-gray-700 transition-colors"
               >
                 &times;
               </button>
 
-              <p className="text-sm font-semibold uppercase tracking-widest">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-600">
                 Run with the pack
               </p>
 
-              <h2 className="mt-6 font-black uppercase">
-                <span className="text-4xl font-black sm:text-5xl lg:text-6xl">
-                  Get 20% off
-                </span>
-                <span className="mt-2 block text-sm">
+              <h2 className="mt-4 font-black uppercase text-2xl sm:text-3xl lg:text-4xl">
+                <span className="block">Get 20% off</span>
+                <span className="mt-1 text-sm block text-gray-600">
                   On your first order
                 </span>
               </h2>
@@ -97,7 +94,7 @@ const LeadGenerationForm: React.FC = () => {
                 action="https://getform.io/f/apjmoeja"
                 method="POST"
                 onSubmit={handleSubmit}
-                className="mt-8"
+                className="mt-6"
               >
                 <input
                   type="text"
@@ -106,7 +103,7 @@ const LeadGenerationForm: React.FC = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full p-2 mb-4 border border-gray-400"
+                  className="w-full p-2 mb-4 border border-gray-300 rounded-md text-sm sm:text-base"
                 />
                 <input
                   type="email"
@@ -115,21 +112,21 @@ const LeadGenerationForm: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full p-2 mb-4 border border-gray-400"
+                  className="w-full p-2 mb-4 border border-gray-300 rounded-md text-sm sm:text-base"
                 />
                 {/* Honeypot field for spam prevention */}
                 <input type="hidden" name="_gotcha" style={{ display: "none" }} />
 
                 <button
                   type="submit"
-                  className="mt-8 inline-block w-full bg-black py-4 text-sm font-bold uppercase tracking-widest text-white"
+                  className="mt-6 inline-block w-full bg-black py-3 text-sm font-bold uppercase tracking-widest text-white rounded-none transition hover:bg-gray-800"
                 >
                   Get Discount
                 </button>
               </form>
 
-              <p className="mt-8 text-xs font-medium uppercase text-gray-400">
-                Offer valid until 24th October, 2024 *
+              <p className="mt-6 text-xs font-medium uppercase text-gray-400">
+                Offer valid for first 100 users only *
               </p>
             </div>
           </section>
