@@ -26,7 +26,7 @@ const HeroSection = () => {
         <p className="text-base md:text-[24px] lg:text-[32px] font-semibold font-barlow leading-normal max-w-[90%] md:max-w-[667px]">
           We're on a mission to build the ultimate sneaker customization
           platform, complete with in-house designers and a dedicated blog for
-          sneaker enthusiasts.
+          sneaker enthusiasts. 
         </p>
 
         {/* Explore Button */}
