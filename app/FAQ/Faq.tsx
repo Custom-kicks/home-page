@@ -1,4 +1,4 @@
-"use client"; // Necessary for Next.js projects using the app directory
+"use client"; 
 
 import React, { useState } from 'react';
 
