@@ -51,7 +51,7 @@ const WhatWeDo = () => {
               className="rounded-md object-cover"
             />
           </div>
-          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-3 md:px-6 gap-2 md:gap-4 lg:gap-5">
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-6 gap-2 md:gap-4 lg:gap-5">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium italic text-gray-900 my-1">{section.title}</h3>
             <p className="text-gray-700 text-normal md:text-lg lg:text-xl mb-2">{section.tagline}</p>
             <p className="text-gray-400 text-xs md:text-base lg:text-normal mb-4 lg:mb-6">{section.description}</p>
