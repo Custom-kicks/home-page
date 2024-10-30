@@ -3,68 +3,61 @@ import Image from 'next/image';
 
 const whatWeDoSections = [
   {
-    title: "Sneaker Customization",
-    description: `We offer an extensive range of sneaker customization options, empowering you to create a style that’s uniquely yours.
-      Our cutting-edge AI technology precisely scans your feet, ensuring a flawless fit tailored to your exact dimensions.
-      Say goodbye to the frustration of size mismatches between UK, IN, and our system eliminates all guesswork, delivering a sneaker that fits like it was custom-made for you.`,
-    img: '/imgs/sneaker.jpg',
+    title: "One Stop Customization",
+    tagline: "Design Custom Sneakers with Ease, Exclusively on Custom Kicks.",
+    description: `Design and personalize your sneakers with ease, selecting colors, patterns, and unique features to craft a pair of shoes that truly reflect your style. Whether it's subtle tweaks or bold redesigns, our platform offers endless possibilities for creating your dream sneakers from scratch.`,
+    img: '/imgs/S1.png',
     alt: 'Sneaker Customization',
-    linkText: 'Get Started',
-    reverse: false,
-  },
-  {
-    title: "In-house Designers",
-    description: `Our elite, in-house designers are the true masterminds behind the world’s most iconic sneakers, drawing from years of experience with top-tier global brands.
-      Their artistry in creating high-quality, authentic designs is second to none. They are deeply committed to turning your one-of-a-kind vision into reality. With their exceptional talent, your custom sneakers will be nothing short of a masterpiece—crafted with precision, style, and flair that truly embodies your unique personality and taste.`,
-    img: '/imgs/designer.jpg',
-    alt: 'In-house Designers',
-    linkText: 'Explore',
+    linkText: 'Customize',
     reverse: true,
   },
   {
-    title: "Community Blogs",
-    description: `We are fostering a dynamic and ever-growing sneaker community through our exclusive blog section.
-      This isn’t just a blog—it’s the go-to destination for sneakerheads worldwide.
-      Immerse yourself in the hottest trends, uncover the latest in cutting-edge sneaker design, and stay ahead of the curve with breaking news from the sneaker universe.`,
-    img: '/imgs/online-blogs.jpg',
-    alt: 'Blogs',
-    linkText: 'Join now',
+    title: "Collab With Designers",
+    tagline: "Bring Your Vision to Life on Custom Kicks with our In-house designers",
+    description: `Work hand-in-hand with our professional in-house designers to create custom sneakers that are truly one-of-a-kind. Whether you need guidance or want expert input on your ideas, our designers are here to help transform your creative concepts into wearable art.`,
+    img: '/imgs/S2.png',
+    alt: 'In-house Designers',
+    linkText: 'Contact us',
     reverse: false,
+  },
+  {
+    title: "Stay in the Loop",
+    tagline: "Discover the Latest Sneaker Trends and Design Tips on Custom Kicks",
+    description: `Our blog keeps you updated with everything you need to know about the sneaker world—from the latest design trends to insider tips on customizing your kicks. Get inspired by industry news, style guides, and expert advice to fuel your creativity and help you craft the perfect pair of custom sneakers.`,
+    img: '/imgs/S3.png',
+    alt: 'Blogs',
+    linkText: 'Check out',
+    reverse: true,
   },
 ];
 
 const WhatWeDo = () => {
   return (
-    <section id="what-we-do" className="p-8 lg:p-24 bg-white">
-      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400">What We Offer</h2>
+    <section id="what-we-do" className="px-3 md:px-8 lg:px-24 py-8 lg:py-24 bg-white">
+      <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-center mb-16 text-gray-400">Our Services</h2>
 
-      {/* Dynamically render each section */}
       {whatWeDoSections.map((section, index) => (
         <div
           key={index}
-          className={`flex flex-col ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center mb-10 lg:mx-8 gap-5`}
+          className={`flex flex-col ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center justify-center mb-16 gap-8 lg:gap-12`}
         >
-          <div className="w-full lg:w-1/2 relative h-96">
+          <div className="w-full lg:w-1/2 relative flex justify-center max-w-[350px] md:max-w-[450px] lg:max-w-[532px] h-[250px] md:h-[350px] lg:h-[441px]">
             <Image
               alt={section.alt}
               src={section.img}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-md"
+              layout="responsive"
+              width={532}
+              height={441}
+              className="rounded-md object-cover"
             />
           </div>
-          <div className="w-full lg:w-1/2 lg:pl-5 flex flex-col justify-between">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 my-3">{section.title}</h3>
-              <p className="text-gray-500 mb-4 text-sm md:text-xs lg:text-base">
-                {section.description}
-              </p>
-              <div className="flex justify-end mt-3 lg:mt-5">
-                <a href="#" className="bg-gray-900 text-white px-6 py-3 rounded-none flickering hover:bg-gray-700">
-                  {section.linkText}
-                </a>
-              </div>
-            </div>
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-3 md:px-6 gap-2 md:gap-4 lg:gap-5">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium italic text-gray-900 my-1">{section.title}</h3>
+            <p className="text-gray-700 text-normal md:text-lg lg:text-xl mb-2">{section.tagline}</p>
+            <p className="text-gray-400 text-xs md:text-base lg:text-normal mb-4 lg:mb-6">{section.description}</p>
+            <a href="#" className="bg-gray-900 text-white px-4 py-3 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md">
+              {section.linkText}
+            </a>
           </div>
         </div>
       ))}
