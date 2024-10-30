@@ -10,12 +10,16 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/imgs/heroSection1.png"
+          src="/imgs/jucWorld.png"
           alt="Background sneaker image"
           layout="fill"
           objectFit="cover"
+          objectPosition="center"
+          className="lg:object-center md:object-top object-center" 
           priority
         />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black opacity-40"></div>
       </div>
 
       {/* Left-Aligned Text Content */}
@@ -24,9 +28,9 @@ const HeroSection = () => {
           Custom Kicks: Craft Sneakers That Reflect Your Style
         </h1>
         <p className="text-base md:text-[24px] lg:text-[32px] font-semibold font-barlow leading-normal max-w-[90%] md:max-w-[667px]">
-        We&apos;re on a mission to build the ultimate sneaker customization
+          We&apos;re on a mission to build the ultimate sneaker customization
           platform, complete with in-house designers and a dedicated blog for
-          sneaker enthusiasts. 
+          sneaker enthusiasts.
         </p>
 
         {/* Explore Button */}
@@ -35,9 +39,9 @@ const HeroSection = () => {
             href="#"
             className="flex items-center gap-[10px] py-2 md:py-3 px-4 md:px-6 w-[120px] md:w-[150px] bg-white text-black rounded-md text-sm md:text-base font-semibold transition hover:bg-gray-200 shadow-md"
           >
-            Explore 
+            Explore
             <ArrowRightIcon className="w-4 h-4 md:w-5 md:h-5 ml-3" />
-          </a> 
+          </a>
         </div>
       </div>
     </section>
