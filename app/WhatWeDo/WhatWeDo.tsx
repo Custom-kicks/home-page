@@ -6,7 +6,7 @@ const whatWeDoSections = [
     title: "One Stop Customization",
     tagline: "Design Custom Sneakers with Ease, Exclusively on Custom Kicks.",
     description: `Design and personalize your sneakers with ease, selecting colors, patterns, and unique features to craft a pair of shoes that truly reflect your style. Whether it's subtle tweaks or bold redesigns, our platform offers endless possibilities for creating your dream sneakers from scratch.`,
-    img: '/imgs/S1.png',
+    img: '/imgs/customisation.png',
     alt: 'Sneaker Customization',
     linkText: 'Customize',
     reverse: true,
@@ -41,7 +41,8 @@ const WhatWeDo = () => {
           key={index}
           className={`flex flex-col ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center justify-center mb-16 gap-8 lg:gap-12`}
         >
-          <div className="w-full lg:w-1/2 relative flex justify-center max-w-[350px] md:max-w-[450px] lg:max-w-[532px] h-[250px] md:h-[350px] lg:h-[441px]">
+          {/* Image Container */}
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start max-w-[350px] md:max-w-[450px] lg:max-w-[532px] h-[250px] md:h-[350px] lg:h-[441px]">
             <Image
               alt={section.alt}
               src={section.img}
@@ -51,11 +52,21 @@ const WhatWeDo = () => {
               className="rounded-md object-cover"
             />
           </div>
-          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-6 gap-2 md:gap-4 lg:gap-5">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium italic text-gray-900 my-1">{section.title}</h3>
-            <p className="text-gray-700 text-normal md:text-lg lg:text-xl mb-2">{section.tagline}</p>
-            <p className="text-gray-400 text-xs md:text-base lg:text-normal mb-4 lg:mb-6">{section.description}</p>
-            <a href="#" className="bg-gray-900 text-white px-4 py-3 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md">
+
+          {/* Text Content */}
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-between h-full px-6 gap-3 lg:gap-8 md:gap-5">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium italic text-gray-900 mb-3 lg:mb-5 md:mb-4 lg:self-start">
+              {section.title}
+            </h3>
+            
+            {/* Centered Tagline and Description */}
+            <div className="flex flex-col items-center lg:items-start justify-center gap-3 md:gap-4 lg:gap-5 mb-4 lg:mb-6">
+              <p className="text-gray-700 text-normal md:text-lg lg:text-xl">{section.tagline}</p>
+              <p className="text-gray-400 text-xs md:text-base lg:text-normal">{section.description}</p>
+            </div>
+            
+            {/* Bottom-aligned Button */}
+            <a href="#" className="bg-gray-900 text-white px-4 py-3 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md lg:self-start lg:mt-auto">
               {section.linkText}
             </a>
           </div>
