@@ -26,7 +26,7 @@ const HomePage = () => {
   }
 
   return (
-    <main className='font-poppins'>
+    <main className='font-work'>
       <LeadGenerationForm />
       <Hero />
       <WhatWeDo />

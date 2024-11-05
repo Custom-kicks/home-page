@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'poppins':["Poppins"]
+        'poppins':["Poppins"],
+        'work':["Work Sans"]
       },
       keyframes: {
         fadeIn: {
