@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between p-5 lg:p-3 bg-white fixed top-0 left-0 right-0 z-50">
+      <nav className="flex items-center justify-between p-5 lg:p-3 bg-white fixed top-0 left-0 right-0 z-50 font-work">
         {/* For Mobile: Hamburger Menu Icon on the left */}
         <div className="lg:hidden flex items-center mr-10">
           <button onClick={toggleMenu}>
@@ -34,12 +34,12 @@ const Navbar = () => {
         </div>
 
         {/* Nav Links for large devices */}
-        <div className="hidden lg:flex space-x-10 items-center mr-5">
+        <div className="hidden lg:flex space-x-10 items-center mr-5 text-normal">
           <a href="/" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Home</a>
           <a href="/cart" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
-          <a href="/search" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Search</a>
+          <a href="/search" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Brands</a>
           <a href="/blog" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Blog</a>
-          <a href="/contact" className=" text-lg font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-md hover:bg-gray-900">
+          <a href="/contact" className=" text-normal font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-md hover:bg-gray-900">
             Contact us
           </a>
         </div>
@@ -49,7 +49,7 @@ const Navbar = () => {
           <div
             className="fixed top-12 left-0 w-full h-[calc(100vh-3rem)] bg-white shadow-md z-50 transition-transform duration-500 ease-out transform translate-y-0 mt-2"
           >
-            <ul className="flex flex-col items-start p-5 space-y-4 text-gray-800 animate-slideInDown">
+            <ul className="flex flex-col items-start p-5 space-y-4 text-gray-800 animate-slideInDown text-normal">
               <li>
                 <a href="/" className="hover:text-indigo-500" onClick={closeMenu}>
                   Home
@@ -62,7 +62,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a href="/search" className="hover:text-indigo-500" onClick={closeMenu}>
-                  Search
+                  Brands
                 </a>
               </li>
               <li>

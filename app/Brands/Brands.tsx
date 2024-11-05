@@ -39,7 +39,7 @@ const Brands = () => {
 
   return (
     <section id="brands" className="py-24">
-      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400">Brands We Work With</h2>
+      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400 font-poppins">Brands We Work With</h2>
       <div className="overflow-hidden">
         <div className="flex space-x-2 md:space-x-3 lg:space-x-5 animate-marquee whitespace-nowrap">
           {brandLogos.concat(brandLogos).map((brand, index) => (

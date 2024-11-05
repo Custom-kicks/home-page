@@ -14,7 +14,7 @@ const FAQWithLeadForm: React.FC = () => {
   return (
     <section id="faq" className="mt-20 px-5">
       {/* FAQ Section */}
-      <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 font-poppins">Frequently Asked Questions</h2>
       <div className="max-w-4xl mx-auto space-y-4">
         <details className="bg-gray-100 p-4 rounded-md">
           <summary className="cursor-pointer font-semibold">How does the customization process work?</summary>
@@ -57,7 +57,7 @@ const FAQWithLeadForm: React.FC = () => {
 
               <button
                 type="submit"
-                className="group mt-4 flex w-full items-center justify-center gap-2 rounded-none bg-black px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-gray-400 sm:mt-0 sm:w-auto"
+                className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-black px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-gray-400 sm:mt-0 sm:w-auto"
               >
                 <span className="text-sm font-medium"> Sign Up </span>
 

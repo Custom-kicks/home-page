@@ -27,7 +27,7 @@ const NewDesigns = () => {
 
   return (
     <section id="new-designs" className="py-24 bg-gray-50 px-6">
-      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400">New Designs</h2>
+      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400 font-poppins">New Designs</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {/* Show first 4 products by default */}

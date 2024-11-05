@@ -4,7 +4,7 @@ import Image from 'next/image'; // Import Image component for optimized image lo
 const Blogs = () => {
   return (
     <section id="blogs" className="py-24 bg-white px-5">
-      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400">Our Blogs</h2>
+      <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400 font-poppins">Our Blogs</h2>
 
       {/* Responsive Image Section */}
       <div className="flex justify-center mb-12">
