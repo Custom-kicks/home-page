@@ -8,6 +8,7 @@ import Brands from './Brands/Brands';
 import FAQ from './FAQ/Faq';
 import Contact from './Contact/Contact';
 import Loading from './Loading'; 
+import Profiles from './Profiles/profiles';
 import LeadGenerationForm from '@/components/LeadGenerationForm';
 
 const HomePage = () => {
@@ -30,6 +31,7 @@ const HomePage = () => {
       <LeadGenerationForm />
       <Hero />
       <WhatWeDo />
+      <Profiles/>
       <NewDesigns />
       <Blogs />
       <Brands />

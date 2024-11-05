@@ -33,7 +33,7 @@ const whatWeDoSections = [
 
 const WhatWeDo = () => {
   return (
-    <section id="what-we-do" className="px-3 md:px-8 lg:px-24 py-8 lg:py-24 bg-white">
+    <section id="what-we-do" className="px-3 md:px-8 lg:px-24 py-8 lg:py-24 bg-white border-b">
       <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-center mb-16 text-gray-400 font-poppins">Our Services</h2>
 
       {whatWeDoSections.map((section, index) => (
