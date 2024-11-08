@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Pencil1Icon, ChevronUpIcon } from "@radix-ui/react-icons"; // Importing Radix Icons
+import { Pencil1Icon, ChevronUpIcon } from "@radix-ui/react-icons"; 
 import Image from "next/image";
 
 const products = [
@@ -29,10 +29,10 @@ const NewDesigns = () => {
     <section id="new-designs" className="py-24 bg-gray-50 px-6">
       <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400 font-poppins">New Designs</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {/* Show first 4 products by default */}
         {products.slice(0, showMore ? products.length : 4).map((product, index) => (
-          <div key={index} className="bg-white p-3 shadow-md rounded transition duration-300 hover:shadow-lg">
+          <div key={index} className="bg-white p-2 sm:p-3 shadow-md rounded transition duration-300 hover:shadow-lg">
             <div className="relative overflow-hidden rounded-lg">
               <Image
                 src={product.img}
@@ -41,19 +41,19 @@ const NewDesigns = () => {
                 height={150} 
                 layout="responsive" 
                 objectFit="cover" 
-                className="w-full h-auto rounded-lg mb-4 transition-all duration-500 hover:scale-110"
+                className="w-full h-auto rounded-lg mb-2 sm:mb-4 transition-all duration-500 hover:scale-110"
               />
               {index < 4 && (
-                <span className="absolute bottom-6 left-2 bg-rose-600 text-white text-sm font-semibold px-2 py-1 rounded-xl">
+                <span className="absolute bottom-4 left-2 bg-rose-600 text-white text-xs sm:text-sm font-semibold px-2 py-1 rounded-xl">
                   New
                 </span>
               )}
             </div>
-            <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
+            <h3 className="text-sm lg:text-lg font-semibold mb-1">{product.name}</h3>
             <div className="flex items-center justify-between">
-              <p className="text-gray-500 text-md">{product.price}</p>
+              <p className="text-gray-500 text-sm sm:text-md">{product.price}</p>
               <button className="relative">
-                <Pencil1Icon className="w-6 h-6 bg-gradient-to-r from-orange-600 via-yellow-500 to-green-500 rounded-full text-white p-1" />
+                <Pencil1Icon className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-600 via-yellow-500 to-green-500 rounded-full text-white p-1" />
               </button>
             </div>
           </div>

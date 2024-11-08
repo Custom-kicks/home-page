@@ -23,9 +23,9 @@ const Brands = () => {
               key={index} 
               className="flex-shrink-0 py-3"
               style={{
-                width: '15vw', // Adjusts width based on screen size
-                maxWidth: '160px', // Ensures logos don’t exceed this width on large screens
-                minWidth: '80px', // Ensures logos don’t get too small on very small screens
+                width: '15vw', 
+                maxWidth: '160px', 
+                minWidth: '80px', 
               }}
             >
               <Image
