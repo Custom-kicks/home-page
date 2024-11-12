@@ -4,7 +4,7 @@ import Navbar from './Navbar/Navbar'; // Import Navbar here instead
 import Hero from './Hero/hero';
 import WhatWeDo from './WhatWeDo/WhatWeDo';
 import NewDesigns from './Designs/NewDesigns';
-import Blogs from './Blogs/Blogs';
+// import Blogs from './Blogs/Blogs';
 import Brands from './Brands/Brands';
 import FAQ from './FAQ/Faq';
 import Contact from './Contact/Contact';
