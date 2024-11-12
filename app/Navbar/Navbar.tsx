@@ -1,11 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import {
-  DragHandleHorizontalIcon,
-  InstagramLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+import { DragHandleHorizontalIcon, InstagramLogoIcon, TwitterLogoIcon, Cross1Icon } from "@radix-ui/react-icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +35,7 @@ const Navbar = () => {
           <a href="/cart" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
           <a href="/search" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Brands</a>
           <a href="/blog" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Blog</a>
-          <a href="/contact" className=" text-normal font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-md hover:bg-gray-900">
+          <a href="/contact" className="text-normal font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-md hover:bg-gray-900">
             Contact us
           </a>
         </div>
@@ -47,11 +43,16 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div
-            className="fixed top-12 left-0 w-full h-[calc(100vh-3rem)] bg-white shadow-md z-50 transition-transform duration-500 ease-out transform translate-y-0 mt-2"
+            className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50 transition-transform duration-500 ease-out transform translate-x-0 fade-in-slide-left"
           >
-            <ul className="flex flex-col items-start p-5 space-y-4 text-gray-800 animate-slideInDown text-normal">
+            {/* Close (X) Icon */}
+            <button className="absolute top-5 right-5 text-gray-900 text-2xl font-bold" onClick={closeMenu}>
+              <Cross1Icon/>
+            </button>
+
+            <ul className="flex flex-col items-start p-6 space-y-4 text-gray-800 text-normal mt-3">
               <li>
-                <a href="/" className="hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/hero" className="hover:text-indigo-500" onClick={closeMenu}>
                   Home
                 </a>
               </li>
@@ -61,7 +62,12 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="/search" className="hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/designs" className="hover:text-indigo-500" onClick={closeMenu}>
+                  Designs
+                </a>
+              </li>
+              <li>
+                <a href="/brands" className="hover:text-indigo-500" onClick={closeMenu}>
                   Brands
                 </a>
               </li>
@@ -75,10 +81,15 @@ const Navbar = () => {
                   Contact
                 </a>
               </li>
+              <li>
+                <a href="/faq" className="hover:text-indigo-500" onClick={closeMenu}>
+                  FAQ
+                </a>
+              </li>
             </ul>
 
             {/* Connect with Us Section */}
-            <div className="mt-auto p-4">
+            <div className="mt-auto p-6">
               <p className="text-gray-600">Connect with us:</p>
               <div className="flex space-x-4 mt-2">
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

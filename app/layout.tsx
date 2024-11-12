@@ -1,5 +1,4 @@
 import './globals.css';
-import Navbar from './Navbar/Navbar';
 
 export const metadata = {
   title: 'Custom Kicks',
@@ -14,8 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        {children}
+        {children} {/* Only renders content */}
       </body>
     </html>
   );
