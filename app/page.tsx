@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar/Navbar'; // Import Navbar here instead
+import Navbar from './Navbar/Navbar'; 
 import Hero from './Hero/hero';
 import WhatWeDo from './WhatWeDo/WhatWeDo';
 import NewDesigns from './Designs/NewDesigns';

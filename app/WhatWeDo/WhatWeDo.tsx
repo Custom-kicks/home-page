@@ -39,10 +39,10 @@ const WhatWeDo = () => {
       {whatWeDoSections.map((section, index) => (
         <div
           key={index}
-          className={`flex flex-col ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center justify-center mb-16 gap-8 lg:gap-12`}
+          className={`flex flex-col ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center justify-center mb-16 gap-10 md:gap-12 lg:gap-14`}
         >
           {/* Image Container */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start max-w-[350px] md:max-w-[450px] lg:max-w-[532px] h-[250px] md:h-[350px] lg:h-[441px]">
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start max-w-[350px] md:max-w-[450px] lg:max-w-[532px] h-[250px] md:h-[350px] lg:h-[441px] -mb-4 lg:mb-2 md:mb-1">
             <Image
               alt={section.alt}
               src={section.img}
@@ -54,19 +54,19 @@ const WhatWeDo = () => {
           </div>
 
           {/* Text Content */}
-          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-between h-full px-6 gap-2 lg:gap-8 md:gap-5">
-            <h3 className="text-2xl md:text-3xl lg:text-5xl font-medium italic text-gray-900 mb-2 lg:mb-5 md:mb-4 lg:self-start">
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-between h-full px-6 lg:gap-8 md:gap-4">
+            <h3 className="text-2xl md:text-3xl lg:text-5xl font-medium italic font-semibold text-gray-900 mb-2 lg:mb-5 md:mb-3 lg:self-start">
               {section.title}
             </h3>
             
             {/* Centered Tagline and Description */}
-            <div className="flex flex-col items-center lg:items-start justify-center gap-3 py-6 md:py-4">
+            <div className="flex flex-col items-center lg:items-start justify-center gap-2 py-3 md:py-4">
               <p className="text-gray-700 text-normal md:text-lg lg:text-xl">{section.tagline}</p>
               <p className="text-gray-400 text-xs md:text-base lg:text-normal">{section.description}</p>
             </div>
             
             {/* Bottom-aligned Button */}
-            <a href="#" className="bg-gray-900 text-white px-4 py-3 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md lg:self-start lg:mt-auto">
+            <a href="#" className="bg-gray-900 text-white px-4 py-2 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md lg:self-start lg:mt-auto">
               {section.linkText}
             </a>
           </div>
