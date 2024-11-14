@@ -1,81 +1,85 @@
-"use client"; 
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image'; 
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCykxTuqKTpLFOecypJAM5d1OwjDxwjRIQ",
+  authDomain: "custom-kicks-ca63e.firebaseapp.com",
+  projectId: "custom-kicks-ca63e",
+  storageBucket: "custom-kicks-ca63e.firebasestorage.app",
+  messagingSenderId: "555965914762",
+  appId: "1:555965914762:web:7100e2a17a0d6834ba1773",
+  measurementId: "G-9HEQX8N793"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const LeadGenerationForm: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
-  const [formClosed, setFormClosed] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("+91 ");
+  const [submitted, setSubmitted] = useState(false);
 
-  // Show the form after 3 seconds of site interaction
+  // Display the form after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!formClosed) {
-        setShowForm(true);
-        document.body.style.overflow = 'hidden'; 
-      }
-    }, 3000); 
+      setShowForm(true);
+      document.body.style.overflow = "hidden";
+    }, 3000);
 
     return () => clearTimeout(timer);
-  }, [formClosed]);
+  }, []);
 
-  // Close the modal and prevent it from showing again
   const closeModal = () => {
     setShowForm(false);
-    setFormClosed(true);
-    document.body.style.overflow = 'auto'; 
+    document.body.style.overflow = "auto";
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ name, email });
-  
+    
     try {
-      const response = await fetch("https://getform.io/f/apjmoeja", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          name, 
-          email, 
-        }).toString(),
+      // Add data to Firestore
+      await addDoc(collection(db, "leads"), {
+        name,
+        email,
+        phone,
+        timestamp: new Date()
       });
-  
-      if (response.ok) {
-        console.log("Form successfully submitted");
+      setSubmitted(true);
+
+      
+      setName("");
+      setEmail("");
+      setPhone("+91 ");
+
+      // Reset fields after a short delay (if needed)
+      setTimeout(() => {
         closeModal();
-      } else {
-        console.error("Form submission failed", response);
-      }
+        setSubmitted(false);
+      }, 2000);
+
     } catch (error) {
-      console.error("An error occurred during submission:", error);
+      console.error("Error adding document: ", error);
     }
   };
 
   return (
     <>
       {showForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 sm:p-6">
-          <section className="relative overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3 bg-white max-w-md w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
-            {/* Image Section */}
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 font-work">
+          <section className="relative overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3 bg-white max-w-md w-full sm:max-w-md md:max-w-2xl lg:max-w-3xl">
             <div className="h-32 w-full md:h-full relative">
-              <Image
-                alt="Sneaker offer"
-                src="/imgs/kicks.jpeg"
-                fill
-                className="object-cover"
-              />
+              <Image alt="Sneaker offer" src="/imgs/kicks.jpeg" fill className="object-cover" />
             </div>
 
-            {/* Form Section */}
             <div className="relative p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 text-2xl font-semibold text-gray-500 hover:text-gray-700 transition-colors"
-              >
+              <button onClick={closeModal} className="absolute top-4 right-4 text-2xl font-semibold text-gray-500 hover:text-gray-700 transition-colors">
                 &times;
               </button>
 
@@ -90,12 +94,7 @@ const LeadGenerationForm: React.FC = () => {
                 </span>
               </h2>
 
-              <form
-                action="https://getform.io/f/apjmoeja"
-                method="POST"
-                onSubmit={handleSubmit}
-                className="mt-6"
-              >
+              <form onSubmit={handleSubmit} className="mt-6">
                 <input
                   type="text"
                   name="name"
@@ -114,14 +113,32 @@ const LeadGenerationForm: React.FC = () => {
                   required
                   className="w-full p-2 mb-4 border border-gray-300 rounded-md text-sm sm:text-base"
                 />
-                {/* Honeypot field for spam prevention */}
-                <input type="hidden" name="_gotcha" style={{ display: "none" }} />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+91"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="w-full p-2 mb-4 border border-gray-300 rounded-md text-sm sm:text-base"
+                />
 
                 <button
                   type="submit"
-                  className="mt-6 inline-block w-full bg-black py-3 text-sm font-bold uppercase tracking-widest text-white rounded-none transition hover:bg-gray-800"
+                  className={`mt-6 inline-block w-full bg-black py-3 text-sm font-bold uppercase tracking-widest text-white rounded-md transition ${
+                    submitted ? "bg-green-600" : "hover:bg-gray-800"
+                  }`}
                 >
-                  Get Discount
+                  {submitted ? (
+                    <span className="flex items-center justify-center space-x-2">
+                      <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Congrats You're in</span>
+                    </span>
+                  ) : (
+                    "Get Discount"
+                  )}
                 </button>
               </form>
 
