@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Custom Kicks',
+  title: 'Custom Kicks - Shoes Beyond imagination 🚀',
   description: 'Customize your sneakers with unique designs',
 };
 
