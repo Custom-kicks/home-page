@@ -21,7 +21,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black opacity-20"></div>
       </div>
 
-      {/* Left-Aligned Text Content */}
+      
       <div className="flex flex-col max-w-full md:max-w-3xl lg:max-w-4xl gap-6 md:gap-8 lg:gap-[62px] text-white">
         <h1 className="text-[32px] md:text-[40px] lg:text-[56px] font-medium italic leading-normal">
           Custom Kicks: Craft Sneakers That Reflect Your Style
@@ -32,7 +32,7 @@ const HeroSection = () => {
           sneaker enthusiasts.
         </p>
 
-        {/* Explore Button */}
+        
         <div className="absolute bottom-10 md:bottom-12 flex justify-center w-full lg:w-auto">
           <a
             href="#"

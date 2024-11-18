@@ -53,19 +53,19 @@ const WhatWeDo = () => {
             />
           </div>
 
-          {/* Text Content */}
+         
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-between h-full px-6 lg:gap-8 md:gap-2">
             <h3 className="text-2xl md:text-3xl lg:text-5xl font-medium italic font-semibold text-gray-900 mb-2 lg:mb-5 md:mb-3 lg:self-start">
               {section.title}
             </h3>
             
-            {/* Centered Tagline and Description */}
+            
             <div className="flex flex-col items-center lg:items-start justify-center gap-2 py-3">
               <p className="text-gray-700 text-normal md:text-lg lg:text-xl">{section.tagline}</p>
               <p className="text-gray-400 text-xs md:text-base lg:text-normal">{section.description}</p>
             </div>
             
-            {/* Bottom-aligned Button */}
+            
             <a href="#" className="bg-gray-900 text-white px-4 py-2 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md lg:self-start lg:mt-auto">
               {section.linkText}
             </a>

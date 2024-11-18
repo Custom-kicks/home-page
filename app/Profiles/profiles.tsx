@@ -34,7 +34,7 @@ const MeetOurDesigners = () => {
               maxWidth: '386px',
             }}
           >
-            {/* Designer Image */}
+           
             <div className="w-full h-auto">
               <Image
                 src={designer.img}
@@ -46,12 +46,12 @@ const MeetOurDesigners = () => {
               />
             </div>
 
-            {/* Text Content */}
-            <div className="bg-black text-white w-full p-4 pb-6"> {/* Added pb-10 for padding */}
+            
+            <div className="bg-black text-white w-full p-4 pb-6"> 
               <h3 className="text-lg md:text-xl font-semibold mb-2">{designer.name}</h3>
               <p className="text-xs md:text-sm">{designer.testimony}</p> 
 
-              {/* SVG Icon positioned below the text with margin */}
+              
               <div className="mt-4 flex justify-end">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 69 68" fill="none">
                   <g filter="url(#filter0_d_2852_893)">

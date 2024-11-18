@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'; // Import Image component for optimized image loading
+import Image from 'next/image'; 
 
 const Blogs = () => {
   return (

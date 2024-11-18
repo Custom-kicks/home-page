@@ -8,7 +8,7 @@ const FAQWithLeadForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log({ email });
-    // Add your form submission logic here
+   
   };
 
   return (

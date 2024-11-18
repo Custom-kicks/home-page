@@ -30,7 +30,7 @@ const NewDesigns = () => {
       <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400 font-poppins">New Designs</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {/* Show first 4 products by default */}
+        
         {products.slice(0, showMore ? products.length : 4).map((product, index) => (
           <div key={index} className="bg-white p-2 sm:p-3 shadow-md rounded transition duration-300 hover:shadow-lg">
             <div className="relative overflow-hidden rounded-lg">

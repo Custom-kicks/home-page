@@ -24,12 +24,12 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Logo for all devices, centered in mobile view */}
+        
         <div className="flex text-center ml-5">
           <Image src="/imgs/logo.png" alt="Custom Kicks Logo" width={180} height={180} />
         </div>
 
-        {/* Nav Links for large devices */}
+        
         <div className="hidden lg:flex space-x-10 items-center mr-5 text-normal">
           <a href="/" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Home</a>
           <a href="/cart" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
@@ -40,12 +40,12 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu */}
+        
         {isMenuOpen && (
           <div
             className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50 transition-transform duration-500 ease-out transform translate-x-0 fade-in-slide-left"
           >
-            {/* Close (X) Icon */}
+            
             <button className="absolute top-5 right-5 text-gray-900 text-2xl font-bold" onClick={closeMenu}>
               <Cross1Icon/>
             </button>
@@ -88,7 +88,7 @@ const Navbar = () => {
               </li>
             </ul>
 
-            {/* Connect with Us Section */}
+            
             <div className="mt-auto p-6">
               <p className="text-gray-600">Connect with us:</p>
               <div className="flex space-x-4 mt-2">
