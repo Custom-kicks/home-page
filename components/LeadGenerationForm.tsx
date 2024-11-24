@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCykxTuqKTpLFOecypJAM5d1OwjDxwjRIQ",
@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "custom-kicks-ca63e.firebasestorage.app",
   messagingSenderId: "555965914762",
   appId: "1:555965914762:web:7100e2a17a0d6834ba1773",
-  measurementId: "G-9HEQX8N793"
+  measurementId: "G-9HEQX8N793",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -24,6 +24,7 @@ const LeadGenerationForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("+91 ");
   const [submitted, setSubmitted] = useState(false);
+  const [alreadyIn, setAlreadyIn] = useState(false);
 
   // Display the form after 3 seconds
   useEffect(() => {
@@ -42,28 +43,36 @@ const LeadGenerationForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+    setAlreadyIn(false); // Reset status
+
     try {
+      // Check if the phone number already exists
+      const leadsQuery = query(collection(db, "leads"), where("phone", "==", phone));
+      const leadsSnapshot = await getDocs(leadsQuery);
+
+      if (!leadsSnapshot.empty) {
+        setAlreadyIn(true);
+        return;
+      }
+
       // Add data to Firestore
       await addDoc(collection(db, "leads"), {
         name,
         email,
         phone,
-        timestamp: new Date()
+        timestamp: new Date(),
       });
-      setSubmitted(true);
 
-      
+      setSubmitted(true);
       setName("");
       setEmail("");
       setPhone("+91 ");
 
-      // Reset fields after a short delay (if needed)
+      // Reset fields and close modal after a short delay
       setTimeout(() => {
         closeModal();
         setSubmitted(false);
-      }, 2000);
-
+      }, 1500);
     } catch (error) {
       console.error("Error adding document: ", error);
     }
@@ -79,7 +88,10 @@ const LeadGenerationForm: React.FC = () => {
             </div>
 
             <div className="relative p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
-              <button onClick={closeModal} className="absolute top-4 right-4 text-2xl font-semibold text-gray-500 hover:text-gray-700 transition-colors">
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-2xl font-semibold text-gray-500 hover:text-gray-700 transition-colors"
+              >
                 &times;
               </button>
 
@@ -88,10 +100,12 @@ const LeadGenerationForm: React.FC = () => {
               </p>
 
               <h2 className="mt-4 font-black uppercase text-2xl sm:text-3xl lg:text-4xl">
-                <span className="block">Get 20% off</span>
-                <span className="mt-1 text-sm block text-gray-600">
-                  On your first order
-                </span>
+                <span className="block">{alreadyIn ? "We’ve Got You Covered" : "Get Discount"}</span>
+                {!alreadyIn && (
+                  <span className="mt-1 text-sm block text-gray-600">
+                    On your first order
+                  </span>
+                )}
               </h2>
 
               <form onSubmit={handleSubmit} className="mt-6">
@@ -125,25 +139,23 @@ const LeadGenerationForm: React.FC = () => {
 
                 <button
                   type="submit"
-                  className={`mt-6 inline-block w-full bg-black py-3 text-sm font-bold uppercase tracking-widest text-white rounded-md transition ${
-                    submitted ? "bg-green-600" : "hover:bg-gray-800"
-                  }`}
+                  className={`mt-6 inline-block w-full py-3 text-sm font-bold uppercase tracking-widest text-white rounded-md transition ${submitted
+                      ? "bg-green-600"
+                      : alreadyIn
+                        ? "bg-yellow-600"
+                        : "bg-black hover:bg-gray-800"
+                    }`}
                 >
-                  {submitted ? (
-                    <span className="flex items-center justify-center space-x-2">
-                      <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Congrats You&apos;re in</span>
-                    </span>
-                  ) : (
-                    "Get Discount"
-                  )}
+                  {submitted
+                    ? "Congrats You're in"
+                    : alreadyIn
+                      ? "You're Already In"
+                      : "Join the Queue"}
                 </button>
               </form>
 
               <p className="mt-6 text-xs font-medium uppercase text-gray-400">
-                Offer valid for first 100 users only *
+                Offer valid for first 150 customers only *
               </p>
             </div>
           </section>

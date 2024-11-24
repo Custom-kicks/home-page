@@ -24,7 +24,7 @@ const whatWeDoSections = [
     title: "Stay in the Loop",
     tagline: "Discover the Latest Sneaker Trends and Design Tips on Custom Kicks",
     description: `Our blog keeps you updated with everything you need to know about the sneaker world—from the latest design trends to insider tips on customizing your kicks. Get inspired by industry news, style guides, and expert advice to fuel your creativity and help you craft the perfect pair of custom sneakers.`,
-    img: '/imgs/S3.png',
+    img: '/imgs/Website Blog.jpg',
     alt: 'Blogs',
     linkText: 'Check out',
     reverse: true,
