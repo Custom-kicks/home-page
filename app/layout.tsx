@@ -1,7 +1,8 @@
 import './globals.css';
+import Head from 'next/head';
 
 export const metadata = {
-  title: 'Custom Kicks - Shoes Beyond imagination 🚀',
+  title: 'Custom Kicks - Shoes Beyond Imagination 🚀',
   description: 'Customize your sneakers with unique designs',
 };
 
@@ -12,8 +13,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Customize sneakers with unique designs" />
+      </Head>
       <body>
-        {children} {/* Only renders content */}
+        {children}
       </body>
     </html>
   );
