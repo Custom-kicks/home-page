@@ -5,7 +5,7 @@ import Hero from './Hero/hero';
 import WhatWeDo from './WhatWeDo/WhatWeDo';
 import NewDesigns from './Designs/NewDesigns';
 // import Blogs from './Blogs/Blogs';
-import Brands from './Brands/Brands';
+// import Brands from './Brands/Brands';
 import FAQ from './FAQ/Faq';
 import Contact from './Contact/Contact';
 import Loading from './Loading';
@@ -30,13 +30,13 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <main className="font-work">
+      <main className="font-work overflow-x-hidden">
         <LeadGenerationForm />
         <Hero />
         <WhatWeDo />
         <Profiles />
         <NewDesigns />
-        <Brands />
+        {/* <Brands /> */}
         <FAQ />
         <Contact />
       </main>
@@ -45,3 +45,7 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
+// 

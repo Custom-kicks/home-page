@@ -53,9 +53,9 @@ const FAQWithLeadForm: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="mt-20 px-5">
+    <section id="faq" className="mt-20">
       <h2 className="text-3xl font-bold text-center mb-12 font-poppins">Frequently Asked Questions</h2>
-      <div className="max-w-4xl mx-auto space-y-4">
+      <div className="max-w-4xl mx-auto space-y-4 px-5">
         <details className="bg-gray-100 p-4 rounded-md">
           <summary className="cursor-pointer font-semibold">How does the customization process work?</summary>
           <p className="mt-2 text-gray-600">
@@ -80,7 +80,7 @@ const FAQWithLeadForm: React.FC = () => {
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
             <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">Stay Updated with Our Sneaker News!</h2>
-            <p className="hidden text-gray-500 sm:mt-4 sm:block">
+            <p className="text-gray-500 text-sm lg:text-xl mt-2 lg:mt-4 sm:block">
               Subscribe to get exclusive discounts, early releases, and insights into the latest sneaker trends.
             </p>
           </div>

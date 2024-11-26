@@ -33,7 +33,7 @@ const HeroSection = () => {
         </p>
 
         
-        <div className="absolute bottom-10 md:bottom-12 flex justify-center w-full lg:w-auto">
+        <div className="absolute bottom-11 md:bottom-12 flex justify-left w-full lg:w-auto">
           <a
             href="#"
             className="flex items-center gap-[10px] py-2 md:py-3 px-4 md:px-6 w-[120px] md:w-[150px] bg-white text-black rounded-md text-sm md:text-base font-semibold transition hover:bg-gray-200 shadow-md"

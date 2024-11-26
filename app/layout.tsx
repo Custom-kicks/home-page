@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
         <meta name="description" content="Customize sneakers with unique designs" />
       </Head>
       <body>
