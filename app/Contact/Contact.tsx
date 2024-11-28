@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           <div className="mt-6 flex gap-4">
             {/* Social Icons */}
             <a
-              href="https://www.facebook.com/customkicksind"
+              href="https://www.facebook.com/profile.php?id=61565587162697&mibextid=ZbWKwL"
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-75"

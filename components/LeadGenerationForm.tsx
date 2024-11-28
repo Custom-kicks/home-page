@@ -25,15 +25,19 @@ const LeadGenerationForm: React.FC = () => {
   const [phone, setPhone] = useState("+91 ");
   const [submitted, setSubmitted] = useState(false);
   const [alreadyIn, setAlreadyIn] = useState(false);
+  const [error, setError] = useState("");
 
-  // Display the form after 3 seconds
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowForm(true);
-      document.body.style.overflow = "hidden";
-    }, 3000);
+    const formDisplayed = localStorage.getItem("formDisplayed");
+    if (!formDisplayed) {
+      const timer = setTimeout(() => {
+        setShowForm(true);
+        document.body.style.overflow = "hidden";
+        localStorage.setItem("formDisplayed", "true");
+      }, 3000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const closeModal = () => {
@@ -43,23 +47,35 @@ const LeadGenerationForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setAlreadyIn(false); // Reset status
+    setError("");
+    setAlreadyIn(false);
 
     try {
-      // Check if the phone number already exists
-      const leadsQuery = query(collection(db, "leads"), where("phone", "==", phone));
-      const leadsSnapshot = await getDocs(leadsQuery);
+      // Check if the email already exists
+      const emailQuery = query(collection(db, "leads"), where("email", "==", email));
+      const emailSnapshot = await getDocs(emailQuery);
 
-      if (!leadsSnapshot.empty) {
+      if (!emailSnapshot.empty) {
         setAlreadyIn(true);
         return;
+      }
+
+      // Check if the phone number exists (only if provided)
+      if (phone.trim() !== "+91 ") {
+        const phoneQuery = query(collection(db, "leads"), where("phone", "==", phone));
+        const phoneSnapshot = await getDocs(phoneQuery);
+
+        if (!phoneSnapshot.empty) {
+          setError("Phone number already used.");
+          return;
+        }
       }
 
       // Add data to Firestore
       await addDoc(collection(db, "leads"), {
         name,
         email,
-        phone,
+        phone: phone.trim() !== "+91 " ? phone : "",
         timestamp: new Date(),
       });
 
@@ -68,7 +84,6 @@ const LeadGenerationForm: React.FC = () => {
       setEmail("");
       setPhone("+91 ");
 
-      // Reset fields and close modal after a short delay
       setTimeout(() => {
         closeModal();
         setSubmitted(false);
@@ -133,9 +148,10 @@ const LeadGenerationForm: React.FC = () => {
                   placeholder="+91"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  required
                   className="w-full p-2 mb-4 border border-gray-300 rounded-md text-sm sm:text-base"
                 />
+
+                {error && <p className="text-red-500 text-sm">{error}</p>}
 
                 <button
                   type="submit"

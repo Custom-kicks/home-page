@@ -67,7 +67,7 @@ const Navbar = () => {
               <p className="text-gray-600">Connect with us:</p>
               <div className="flex space-x-4 mt-2">
                 <a
-                  href="https://www.facebook.com/customkicksind"
+                  href="https://www.facebook.com/profile.php?id=61565587162697&mibextid=ZbWKwL"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:opacity-75"

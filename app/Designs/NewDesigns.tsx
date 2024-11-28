@@ -1,21 +1,24 @@
 "use client";
+
 import React, { useState } from "react";
 import { Pencil1Icon, ChevronUpIcon } from "@radix-ui/react-icons"; 
 import Image from "next/image";
 
 const products = [
-  { name: "Adidas Pink Pamper", price: "₹6,999", img: "/imgs/adidas_pink_pamper.jpeg" },
-  { name: "Air Force 1 Ecstasy", price: "₹11,299", img: "/imgs/Air_force1_ectasy.jpeg" },
-  { name: "The Future", price: "₹9,999", img: "/imgs/AF_future.jpeg" },
-  { name: "Nike AF GTA", price: "₹5,999", img: "/imgs/Nke_gta.jpeg" },
-  { name: "Midnight Jazz", price: "₹7,499", img: "/imgs/Midnight_Jazz.jpeg" },
-  { name: "Customised Graffiti Edition", price: "₹8,999", img: "/imgs/Customised_graffiti.jpeg" },
-  { name: "Custom Animated Edition", price: "₹9,499", img: "/imgs/Custom_animated_edition.jpeg" },
-  { name: "Air Jordan NBA", price: "₹10,299", img: "/imgs/Air_jordan_nba.jpeg" },
-  { name: "Air Force 1 Etsy", price: "₹6,299", img: "/imgs/Etsy.jpeg" },
-  { name: "Millionaires Adidas Vladi", price: "₹11,999", img: "/imgs/Millionaires_Adidas_Vladi.jpeg" },
-  { name: "Imaginary Elements", price: "₹6,799", img: "/imgs/much.jpeg" },
-  { name: "Tom and Jerry", price: "₹5,499", img: "/imgs/Tom&jerry.jpeg" },
+  { name: "Anime Phantom", price: "₹9,799", originalPrice: "₹12,999", img: "/imgs/sneaker10.jpeg" },
+  { name: "Urban Cosmos", price: "₹11,499", originalPrice: "₹14,999", img: "/imgs/Custom_shoes.jpeg" },
+  { name: "Cartoon Clash", price: "₹9,199", originalPrice: "₹11,999", img: "/imgs/Custom4.jpeg" },
+  { name: "Nature Luxe", price: "₹10,499", originalPrice: "₹13,999", img: "/imgs/sneaker11.jpeg" },
+  { name: "Ace Strike", price: "₹7,899", originalPrice: "₹9,999", img: "/imgs/Ace.jpeg" },
+  { name: "Artful Airs", price: "₹7,899", originalPrice: "₹9,599", img: "/imgs/JordanArt.jpeg" },
+  { name: "Fusion Heroes", price: "₹5,999", originalPrice: "₹7,499", img: "/imgs/DragonBallxNaruto.jpeg" },
+  { name: "Twilight Horizon", price: "₹8,499", originalPrice: "₹10,999", img: "/imgs/Attack_on_Titan_Custom.jpeg" },
+  { name: "Crimson Blaze", price: "₹6,999", originalPrice: "₹8,599", img: "/imgs/sneaker12.jpeg" },
+  { name: "Sorcerer's Edge", price: "₹8,299", originalPrice: "₹10,399", img: "/imgs/Jujutsu.jpeg" },
+  { name: "Feudal Warrior", price: "₹6,499", originalPrice: "₹7,999", img: "/imgs/sneaker9.jpeg" },
+  { name: "Classic Odyssey", price: "₹6,799", originalPrice: "₹8,199", img: "/imgs/1piece.jpeg" },
+  { name: "Dream Anime", price: "₹6,799", originalPrice: "₹8,199", img: "/imgs/sneaker5.jpeg" },
+  { name: "Timeless Anime", price: "₹6,799", originalPrice: "₹8,199", img: "/imgs/sneaker7.jpeg" },
 ];
 
 const NewDesigns = () => {
@@ -30,7 +33,6 @@ const NewDesigns = () => {
       <h2 className="text-3xl lg:text-7xl font-bold text-center mb-12 text-gray-400 font-poppins">New Designs</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        
         {products.slice(0, showMore ? products.length : 4).map((product, index) => (
           <div key={index} className="bg-white p-2 sm:p-3 shadow-md rounded transition duration-300 hover:shadow-lg">
             <div className="relative overflow-hidden rounded-lg">
@@ -44,21 +46,24 @@ const NewDesigns = () => {
                 className="w-full h-auto rounded-lg mb-2 sm:mb-4 transition-all duration-500 hover:scale-110"
               />
               {index < 4 && (
-                <span className="absolute bottom-4 left-2 bg-rose-600 text-white text-xs sm:text-sm font-semibold px-2 py-1 rounded-xl">
+                <span className="absolute bottom-5 left-2 bg-rose-600 text-white text-xs sm:text-sm font-semibold px-2 py-1 rounded-xl italic">
                   New
                 </span>
               )}
             </div>
-            <h3 className="text-sm lg:text-lg font-semibold mb-1">{product.name}</h3>
+            <h3 className="text-sm lg:text-lg font-light mb-1">{product.name}</h3>
             <div className="flex items-center justify-between">
-              <p className="text-gray-500 text-sm sm:text-md">{product.price}</p>
+              <div className="text-left">
+                <p className="text-gray-800 font-semibold text-sm sm:text-md inline">{product.price}</p>
+                <p className="line-through text-gray-400 text-xs sm:text-sm inline ml-2">{product.originalPrice}</p>
+              </div>
               <button className="relative">
                 <Pencil1Icon className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-600 via-yellow-500 to-green-500 rounded-full text-white p-1" />
               </button>
             </div>
           </div>
         ))}
-      </div>
+      </div> 
 
       {/* See More / See Less button */}
       <div className="flex justify-center mt-5">

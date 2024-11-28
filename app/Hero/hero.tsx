@@ -9,15 +9,30 @@ const HeroSection = () => {
     <section className="relative h-screen flex items-center justify-start text-white px-4 md:px-8 lg:px-16">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/imgs/hero_.png"
-          alt="Background sneaker image"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="lg:object-center md:object-top object-center" 
-          priority
-        />
+        {/* Default background for large and medium screens */}
+        <div className="hidden md:block">
+          <Image
+            src="/imgs/hero_.png"
+            alt="Background sneaker image"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            className="lg:object-center md:object-top" 
+            priority
+          />
+        </div>
+        {/* Mobile-specific background */}
+        <div className="md:hidden">
+          <Image
+            src="/imgs/her0.jpeg"
+            alt="Mobile-specific background sneaker image"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
+            priority
+          />
+        </div>
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black opacity-20"></div>
       </div>
 
@@ -31,7 +46,8 @@ const HeroSection = () => {
           sneaker enthusiasts.
         </p>
 
-        <div className="absolute bottom-16 md:bottom-12 flex justify-left w-full lg:w-auto">
+        {/* Explore Button */}
+        <div className="absolute bottom-24 md:bottom-12 flex justify-left w-full lg:w-auto">
           <a
             href="#"
             className="flex items-center gap-[10px] py-2 md:py-3 px-4 md:px-6 w-[120px] md:w-[150px] bg-white text-black rounded-md text-sm md:text-base font-semibold transition hover:bg-gray-200 shadow-md"
