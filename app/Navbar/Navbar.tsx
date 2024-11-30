@@ -88,37 +88,37 @@ const Navbar = () => {
                 </a>
               </motion.li>
               <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/cart" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
                   <ShoppingCartIcon className="w-5 h-5" />
                   <span>Cart</span>
                 </a>
               </motion.li>
               <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/designs" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
                   <PaletteIcon className="w-5 h-5" />
                   <span>Designs</span>
                 </a>
               </motion.li>
               <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/brands" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
                   <BoxIcon className="w-5 h-5" />
                   <span>Brands</span>
                 </a>
               </motion.li>
               <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/blog" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
                   <FileTextIcon className="w-5 h-5" />
                   <span>Blog</span>
                 </a>
               </motion.li>
               <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/contact" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
                   <PhoneIcon className="w-5 h-5" />
                   <span>Contact</span>
                 </a>
               </motion.li>
               <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/faq" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
                   <HelpCircleIcon className="w-5 h-5" />
                   <span>FAQ</span>
                 </a>
