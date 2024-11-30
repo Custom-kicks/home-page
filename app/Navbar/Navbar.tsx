@@ -3,6 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import { DragHandleHorizontalIcon, Cross1Icon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import {
+  HomeIcon,
+  ShoppingCartIcon,
+  PaletteIcon,
+  BoxIcon,
+  FileTextIcon,
+  PhoneIcon,
+  HelpCircleIcon,
+} from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,10 +25,16 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const menuVariants = {
+    hidden: { x: "-100%", opacity: 0 },
+    visible: { x: "0%", opacity: 1 },
+    exit: { x: "-100%", opacity: 0 },
+  };
+
   return (
     <>
       <nav className="flex items-center justify-between p-5 lg:p-3 bg-white fixed top-0 left-0 right-0 z-50 font-work">
-        {/* For Mobile: Hamburger Menu Icon on the left */}
+        {/* Hamburger Menu Icon */}
         <div className="lg:hidden flex items-center mr-10">
           <button onClick={toggleMenu}>
             <DragHandleHorizontalIcon className="w-8 h-8 text-gray-900" />
@@ -30,21 +46,25 @@ const Navbar = () => {
           <Image src="/imgs/logo.png" alt="Custom Kicks Logo" width={180} height={180} />
         </div>
 
-        {/* Navigation Links (Desktop) */}
+        {/* Desktop Navigation Links */}
         <div className="hidden lg:flex space-x-10 items-center mr-5 text-normal">
           <a href="/" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Home</a>
-          <a href="/cart" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
-          <a href="/search" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Brands</a>
-          <a href="/blog" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Blog</a>
-          <a href="/contact" className="text-normal font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-md hover:bg-gray-900">
+          <a href="/under-development" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Cart</a>
+          <a href="/under-development" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Brands</a>
+          <a href="/under-development" className="font-semibold text-gray-500 hover:text-gray-900 hover:font-bold">Blog</a>
+          <a href="/#" className="text-normal font-normal text-white bg-black border border-gray-800 px-4 py-3 rounded-md hover:bg-gray-900">
             Contact us
           </a>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div
-            className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50 transition-transform duration-500 ease-out transform translate-x-0 fade-in-slide-left"
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50"
           >
             {/* Close Icon */}
             <button className="absolute top-5 right-5 text-gray-900 text-2xl font-bold" onClick={closeMenu}>
@@ -52,18 +72,66 @@ const Navbar = () => {
             </button>
 
             {/* Menu Links */}
-            <ul className="flex flex-col items-start p-6 space-y-4 text-gray-800 text-normal mt-3">
-              <li><a href="/" className="hover:text-indigo-500" onClick={closeMenu}>Home</a></li>
-              <li><a href="/cart" className="hover:text-indigo-500" onClick={closeMenu}>Cart</a></li>
-              <li><a href="/designs" className="hover:text-indigo-500" onClick={closeMenu}>Designs</a></li>
-              <li><a href="/brands" className="hover:text-indigo-500" onClick={closeMenu}>Brands</a></li>
-              <li><a href="/blog" className="hover:text-indigo-500" onClick={closeMenu}>Blog</a></li>
-              <li><a href="/contact" className="hover:text-indigo-500" onClick={closeMenu}>Contact</a></li>
-              <li><a href="/faq" className="hover:text-indigo-500" onClick={closeMenu}>FAQ</a></li>
-            </ul>
+            <motion.ul
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+              }}
+              className="flex flex-col items-start p-6 space-y-4 text-gray-800 text-normal mt-3"
+            >
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <HomeIcon className="w-5 h-5" />
+                  <span>Home</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/cart" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <ShoppingCartIcon className="w-5 h-5" />
+                  <span>Cart</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/designs" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <PaletteIcon className="w-5 h-5" />
+                  <span>Designs</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/brands" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <BoxIcon className="w-5 h-5" />
+                  <span>Brands</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/blog" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <FileTextIcon className="w-5 h-5" />
+                  <span>Blog</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/contact" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <PhoneIcon className="w-5 h-5" />
+                  <span>Contact</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <a href="/faq" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                  <HelpCircleIcon className="w-5 h-5" />
+                  <span>FAQ</span>
+                </a>
+              </motion.li>
+            </motion.ul>
 
             {/* Social Links */}
-            <div className="mt-auto p-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="mt-auto p-6"
+            >
               <p className="text-gray-600">Connect with us:</p>
               <div className="flex space-x-4 mt-2">
                 <a
@@ -72,7 +140,6 @@ const Navbar = () => {
                   rel="noreferrer"
                   className="hover:opacity-75"
                 >
-                  <span className="sr-only">Facebook</span>
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path
                       fillRule="evenodd"
@@ -97,7 +164,7 @@ const Navbar = () => {
                   </svg>
                 </a>
                 <a
-                  href="mailto:customkicks011@gmail.com"
+                  href="mailto:support@customkicks.in"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:opacity-75"
@@ -119,9 +186,10 @@ const Navbar = () => {
                   </svg>
                 </a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
+
       </nav>
     </>
   );

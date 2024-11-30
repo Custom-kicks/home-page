@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               </svg>
             </a>
             <a
-              href="mailto:customkicks011@gmail.com"
+              href="mailto:support@customkicks.in"
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-75"

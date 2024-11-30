@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link for routing
+// import UnderDevelopmentPage from '../UnderDevelopmentPage';
 
 const whatWeDoSections = [
   {
@@ -68,9 +70,12 @@ const WhatWeDo = () => {
               </p>
             </div>
 
-            <a href="#" className="bg-gray-900 text-white px-4 py-2 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md lg:self-start lg:mt-auto">
-              {section.linkText}
-            </a>
+            {/* Link to the UnderDevelopmentPage */}
+            <Link legacyBehavior href="/under-development">
+              <a className="bg-gray-900 text-white px-4 py-2 rounded-md text-base font-semibold hover:bg-gray-700 shadow-md lg:self-start lg:mt-auto">
+                {section.linkText}
+              </a>
+            </Link>
           </div>
         </div>
       ))}

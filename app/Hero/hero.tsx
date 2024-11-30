@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRightIcon } from "@radix-ui/react-icons"; 
+import Link from "next/link"; // Import Next.js Link
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 const HeroSection = () => {
   return (
@@ -17,7 +18,7 @@ const HeroSection = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            className="lg:object-center md:object-top" 
+            className="lg:object-center md:object-top"
             priority
           />
         </div>
@@ -48,13 +49,12 @@ const HeroSection = () => {
 
         {/* Explore Button */}
         <div className="absolute bottom-24 md:bottom-12 flex justify-left w-full lg:w-auto">
-          <a
-            href="#"
-            className="flex items-center gap-[10px] py-2 md:py-3 px-4 md:px-6 w-[120px] md:w-[150px] bg-white text-black rounded-md text-sm md:text-base font-semibold transition hover:bg-gray-200 shadow-md"
-          >
-            Explore
-            <ArrowRightIcon className="w-4 h-4 md:w-5 md:h-5 ml-3" />
-          </a>
+          <Link legacyBehavior href="/under-development">
+            <a className="flex items-center gap-[10px] py-2 md:py-3 px-4 md:px-6 w-[120px] md:w-[150px] bg-white text-black rounded-md text-sm md:text-base font-semibold transition hover:bg-gray-200 shadow-md">
+              Explore
+              <ArrowRightIcon className="w-4 h-4 md:w-5 md:h-5 ml-3" />
+            </a>
+          </Link>
         </div>
       </div>
     </section>
