@@ -60,9 +60,10 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={menuVariants}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50"
           >
@@ -189,7 +190,6 @@ const Navbar = () => {
             </motion.div>
           </motion.div>
         )}
-
       </nav>
     </>
   );
