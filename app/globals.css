@@ -60,3 +60,27 @@
   .fadeOutLeft {
     animation: fadeOutLeft 0.6s ease forwards;
   }
+
+
+/* Global Styles to Lock Theme and Font Sizes */
+html.theme-light {
+  color-scheme: light; /* Force light mode */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Lock Font Sizes */
+html {
+  font-size: 16px !important; /* Prevent device-based scaling */
+}
+
+body {
+  font-size: 16px; /* Ensure consistency */
+}
+
+/* Optional: Prevent browser-specific adjustments */
+* {
+  -webkit-text-size-adjust: 100%; /* Disable iOS font scaling */
+  -moz-text-size-adjust: 100%;   /* Disable Firefox font scaling */
+  text-size-adjust: 100%;        /* Standard */
+}
