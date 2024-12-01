@@ -16,6 +16,9 @@ const Footer: React.FC = () => {
               <a href="tel:+917077965678" className="block hover:opacity-75">
                 +91 70779 65678
               </a>
+              <a href="mailto:business@customkicks.in" className="block hover:opacity-75">
+                business@customkicks.in
+              </a>
             </p>
             <ul className="space-y-1">
               <li>Monday to Friday: 10am - 5pm</li>
@@ -82,18 +85,26 @@ const Footer: React.FC = () => {
         {/* Links Section */}
         <div className="lg:col-span-1 mb-8 lg:mb-0">
           <h2 className="text-white text-lg font-semibold uppercase tracking-wide">Links</h2>
-          <ul className="mt-4 space-y-3 text-sm">
+          <ul className="mt-4 space-y-2">
             <li>
-              <a href="#" className="hover:text-gray-300">About</a>
+              <a href="#" className="hover:opacity-75">
+                Services
+              </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">Privacy Policy</a>
+              <a href="#" className="hover:opacity-75">
+                Products
+              </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">Terms of Service</a>
+              <a href="#" className="hover:opacity-75">
+                About Us
+              </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">Shipping Policy</a>
+              <a href="#" className="hover:opacity-75">
+                Contact
+              </a>
             </li>
           </ul>
         </div>
@@ -113,7 +124,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-black text-left text-gray-400 p-4">
+      <div className="bg-black text-left text-gray-400 p-5">
         <p>&copy; {new Date().getFullYear()} Custom Kicks. All rights reserved.</p>
       </div>
     </footer>
