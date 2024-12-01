@@ -9,7 +9,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCykxTuqKTpLFOecypJAM5d1OwjDxwjRIQ",
   authDomain: "custom-kicks-ca63e.firebaseapp.com",
   projectId: "custom-kicks-ca63e",
-  storageBucket: "custom-kicks-ca63e.firebasestorage.app",
+  storageBucket: "custom-kicks-ca63e.appspot.com",
   messagingSenderId: "555965914762",
   appId: "1:555965914762:web:7100e2a17a0d6834ba1773",
   measurementId: "G-9HEQX8N793",
@@ -24,7 +24,7 @@ const FAQWithLeadForm: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null); // Track which FAQ is active
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,18 +44,18 @@ const FAQWithLeadForm: React.FC = () => {
     try {
       setLoading(true);
 
-      // Check if email already exists
-      const q = query(collection(db, "newsletter"), where("email", "==", trimmedEmail));
-      const querySnapshot = await getDocs(q);
+      // Check if email already exists in the database
+      const emailExists = await emailAlreadyExists(trimmedEmail);
 
-      if (!querySnapshot.empty) {
+      if (emailExists) {
         setError("This email is already subscribed.");
         setLoading(false);
         return;
       }
 
-      // Add email to the "newsletter" collection if not already subscribed
+      // Add the email to the "newsletter" collection
       await addDoc(collection(db, "newsletter"), { email: trimmedEmail, timestamp: new Date() });
+
       setIsSubmitted(true);
       setEmail("");
 
@@ -68,6 +68,12 @@ const FAQWithLeadForm: React.FC = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const emailAlreadyExists = async (email: string): Promise<boolean> => {
+    const q = query(collection(db, "newsletter"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
   };
 
   const toggleFAQ = (index: number) => {

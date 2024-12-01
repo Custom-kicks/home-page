@@ -2,21 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCykxTuqKTpLFOecypJAM5d1OwjDxwjRIQ",
-  authDomain: "custom-kicks-ca63e.firebaseapp.com",
-  projectId: "custom-kicks-ca63e",
-  storageBucket: "custom-kicks-ca63e.firebasestorage.app",
-  messagingSenderId: "555965914762",
-  appId: "1:555965914762:web:7100e2a17a0d6834ba1773",
-  measurementId: "G-9HEQX8N793",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { db } from "./firebaseConfig";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
 const LeadGenerationForm: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
