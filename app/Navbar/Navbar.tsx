@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { DragHandleHorizontalIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   HomeIcon,
   ShoppingCartIcon,
@@ -58,76 +58,75 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={menuVariants}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50"
-          >
-            {/* Close Icon */}
-            <button className="absolute top-5 right-5 text-gray-900 text-2xl font-bold" onClick={closeMenu}>
-              <Cross1Icon />
-            </button>
-
-            {/* Menu Links */}
-            <motion.ul
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
               initial="hidden"
               animate="visible"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
-              }}
-              className="flex flex-col items-start p-6 space-y-4 text-gray-800 text-normal mt-3"
+              exit="exit"
+              variants={menuVariants}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="fixed top-[65px] left-0 w-2/3 h-screen bg-white shadow-lg z-50"
             >
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <HomeIcon className="w-5 h-5" />
-                  <span>Home</span>
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <ShoppingCartIcon className="w-5 h-5" />
-                  <span>Cart</span>
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <PaletteIcon className="w-5 h-5" />
-                  <span>Designs</span>
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <BoxIcon className="w-5 h-5" />
-                  <span>Brands</span>
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <FileTextIcon className="w-5 h-5" />
-                  <span>Blog</span>
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <PhoneIcon className="w-5 h-5" />
-                  <span>Contact</span>
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
-                  <HelpCircleIcon className="w-5 h-5" />
-                  <span>FAQ</span>
-                </a>
-              </motion.li>
-            </motion.ul>
+              {/* Close Icon */}
+              <button className="absolute top-5 right-5 text-gray-900 text-2xl font-bold" onClick={closeMenu}>
+                <Cross1Icon />
+              </button>
 
-            {/* Social Links */}
-            <motion.div
+              {/* Menu Links */}
+              <motion.ul
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+                }}
+                className="flex flex-col items-start p-6 space-y-4 text-gray-800 text-normal mt-3"
+              >
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <HomeIcon className="w-5 h-5" />
+                    <span>Home</span>
+                  </a>
+                </motion.li>
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <ShoppingCartIcon className="w-5 h-5" />
+                    <span>Cart</span>
+                  </a>
+                </motion.li>
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <PaletteIcon className="w-5 h-5" />
+                    <span>Designs</span>
+                  </a>
+                </motion.li>
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <BoxIcon className="w-5 h-5" />
+                    <span>Brands</span>
+                  </a>
+                </motion.li>
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <FileTextIcon className="w-5 h-5" />
+                    <span>Blog</span>
+                  </a>
+                </motion.li>
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <PhoneIcon className="w-5 h-5" />
+                    <span>Contact</span>
+                  </a>
+                </motion.li>
+                <motion.li whileHover={{ scale: 1.05 }}>
+                  <a href="/#" className="flex items-center space-x-3 hover:text-indigo-500" onClick={closeMenu}>
+                    <HelpCircleIcon className="w-5 h-5" />
+                    <span>FAQ</span>
+                  </a>
+                </motion.li>
+              </motion.ul>
+              <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -188,8 +187,9 @@ const Navbar = () => {
                 </a>
               </div>
             </motion.div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </>
   );
